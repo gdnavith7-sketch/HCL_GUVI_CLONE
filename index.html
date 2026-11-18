@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navith Abbas | Senior Network Engineer – 4G LTE & 5G NR</title>
+<meta name="description" content="Portfolio of Navith Abbas, Senior Network Engineer with 9+ years in 4G LTE, 5G NR, RF optimization, OSS operations, O-RAN and Python automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b14; --bg2:#0d1424; --card:rgba(255,255,255,.04); --card-b:rgba(255,255,255,.09);
+  --text:#e8ecf6; --muted:#98a3bd; --a1:#22d3ee; --a2:#8b5cf6; --a3:#f472b6;
+  --grad:linear-gradient(135deg,var(--a1),var(--a2) 55%,var(--a3));
+  --shadow:0 20px 60px rgba(0,0,0,.45);
+}
+:root[data-theme="light"]{
+  --bg:#f5f7fc; --bg2:#eaeef8; --card:rgba(255,255,255,.75); --card-b:rgba(20,30,60,.10);
+  --text:#121a2e; --muted:#55607a; --shadow:0 20px 50px rgba(30,40,90,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;transition:background .4s,color .4s}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+#net{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
+.glow{position:fixed;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.18;z-index:0;pointer-events:none}
+.glow.g1{background:var(--a2);top:-120px;left:-120px}
+.glow.g2{background:var(--a1);bottom:-160px;right:-120px}
+main,header,footer,section{position:relative;z-index:1}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:200}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--card-b)}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:1.25rem;letter-spacing:.5px}
+.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:26px;align-items:center}
+.links a{font-size:.9rem;color:var(--muted);transition:.25s;position:relative}
+.links a:hover,.links a.active{color:var(--text)}
+.links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--grad);border-radius:2px}
+.tbtn{background:var(--card);border:1px solid var(--card-b);color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;transition:.25s}
+.tbtn:hover{transform:rotate(20deg);border-color:var(--a1)}
+.burger{display:none}
+@media(max-width:860px){
+  .links{position:fixed;top:66px;left:0;right:0;flex-direction:column;background:var(--bg2);padding:22px;gap:18px;border-bottom:1px solid var(--card-b);transform:translateY(-130%);transition:.35s}
+  .links.open{transform:none}
+  .burger{display:inline-block}
+}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1px solid var(--card-b);background:var(--card);border-radius:99px;font-size:.82rem;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.8rem);margin:22px 0 14px;font-weight:700;letter-spacing:-1.5px}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.typed{font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--muted);min-height:2.2em;font-family:'JetBrains Mono',monospace}
+.typed b{color:var(--a1);font-weight:500}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--a1);margin-left:3px;vertical-align:-3px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{max-width:560px;color:var(--muted);margin:18px 0 32px;font-size:1.05rem}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:13px 26px;border-radius:12px;font-weight:600;font-size:.95rem;cursor:pointer;border:1px solid transparent;transition:.3s;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(139,92,246,.35)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(139,92,246,.5)}
+.btn.ghost{background:var(--card);border-color:var(--card-b);color:var(--text)}
+.btn.ghost:hover{border-color:var(--a1);transform:translateY(-3px)}
+.avatar-wrap{position:relative;display:grid;place-items:center}
+.ring{position:absolute;width:100%;aspect-ratio:1;border-radius:50%;border:1px dashed var(--card-b);animation:spin 28s linear infinite}
+.ring.r2{width:82%;border-color:rgba(34,211,238,.35);animation-duration:20s;animation-direction:reverse}
+.ring::after{content:"";position:absolute;top:8%;left:50%;width:12px;height:12px;border-radius:50%;background:var(--a1);box-shadow:0 0 20px var(--a1)}
+.ring.r2::after{background:var(--a3);box-shadow:0 0 20px var(--a3)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar{width:62%;aspect-ratio:1;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-family:'Space Grotesk';font-size:clamp(3rem,8vw,5.5rem);font-weight:700;color:#fff;box-shadow:0 0 80px rgba(139,92,246,.45);position:relative;z-index:2}
+.chip{position:absolute;z-index:3;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--card-b);backdrop-filter:blur(10px);font-size:.78rem;font-weight:500;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite}
+.chip.c1{top:6%;right:0}.chip.c2{bottom:14%;left:-4%;animation-delay:-1.5s}.chip.c3{bottom:2%;right:6%;animation-delay:-3s}
+@keyframes float{50%{transform:translateY(-12px)}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero p.lead{margin-inline:auto}.btns,.hero .tag{justify-content:center}.avatar-wrap{max-width:330px;margin:20px auto 0}}
+
+/* sections */
+section.s{padding:100px 0}
+.eyebrow{font-family:'JetBrains Mono';color:var(--a1);font-size:.85rem;letter-spacing:2px;text-transform:uppercase}
+.title{font-size:clamp(2rem,4.5vw,3rem);margin:10px 0 18px;letter-spacing:-1px}
+.sub{color:var(--muted);max-width:640px}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;margin-top:40px}
+.glass{background:var(--card);border:1px solid var(--card-b);border-radius:20px;padding:30px;backdrop-filter:blur(10px)}
+.about-grid p{color:var(--muted);margin-bottom:16px}
+.about-grid p strong{color:var(--text)}
+.facts{display:grid;gap:16px}
+.fact{display:flex;gap:14px;align-items:center}
+.fact i{font-style:normal;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--grad);font-size:1.1rem}
+.fact small{display:block;color:var(--muted);font-size:.75rem}
+.fact span{font-weight:500;font-size:.95rem;word-break:break-word}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
+.stat{text-align:center;padding:28px 14px;transition:.35s}
+.stat:hover{transform:translateY(-6px);border-color:var(--a2)}
+.stat h3{font-size:2.6rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{color:var(--muted);font-size:.88rem;margin-top:6px}
+@media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;margin-top:44px}
+.skill{transition:.35s}
+.skill:hover{transform:translateY(-6px);border-color:var(--a1);box-shadow:var(--shadow)}
+.skill h4{font-size:1.1rem;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{padding:6px 13px;font-size:.8rem;border-radius:99px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);transition:.25s}
+.pill:hover{background:var(--a2);color:#fff;transform:translateY(-2px)}
+.bars{margin-top:46px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px 50px}
+.bar .lbl{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:8px}
+.bar .lbl span:last-child{color:var(--muted)}
+.track{height:8px;background:var(--card-b);border-radius:99px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--grad);border-radius:99px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+@media(max-width:700px){.bars{grid-template-columns:1fr}}
+
+/* timeline */
+.timeline{position:relative;margin-top:50px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--a1),var(--a2),var(--a3));opacity:.5}
+.job{position:relative;margin-bottom:30px;cursor:pointer;transition:.35s}
+.job::before{content:"";position:absolute;left:-34px;top:34px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:3px solid var(--a1);box-shadow:0 0 16px var(--a1);transition:.3s}
+.job:hover,.job.open{border-color:var(--a2);transform:translateX(6px)}
+.job.open::before{background:var(--a1)}
+.job-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.job h3{font-size:1.25rem}
+.job .co{color:var(--a1);font-weight:500;font-size:.95rem;margin-top:3px}
+.date{font-family:'JetBrains Mono';font-size:.78rem;padding:5px 12px;border-radius:99px;background:var(--card);border:1px solid var(--card-b);color:var(--muted);white-space:nowrap}
+.job-body{max-height:0;overflow:hidden;transition:max-height .6s ease}
+.job.open .job-body{max-height:900px}
+.job ul{list-style:none;margin-top:18px;display:grid;gap:11px}
+.job li{position:relative;padding-left:22px;color:var(--muted);font-size:.93rem}
+.job li::before{content:"▸";position:absolute;left:0;color:var(--a1)}
+.more{font-size:.78rem;color:var(--a2);margin-top:10px;font-family:'JetBrains Mono'}
+.job.open .more::after{content:" – collapse"}
+.job:not(.open) .more::after{content:" – expand"}
+.hl{color:var(--text);font-weight:500}
+
+/* achievements & edu */
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:44px}
+.ach{transition:.35s}
+.ach:hover{transform:translateY(-6px) rotate(-.4deg);border-color:var(--a3)}
+.ach .ic{font-size:1.8rem;margin-bottom:12px}
+.ach p{color:var(--muted);font-size:.92rem}
+.edu{display:flex;gap:20px;align-items:center;margin-top:34px}
+.edu .ic{font-size:2.4rem}
+.edu p{color:var(--muted);font-size:.92rem}
+
+/* contact */
+.contact-box{text-align:center;padding:60px 30px;background:var(--card);border:1px solid var(--card-b);border-radius:28px;position:relative;overflow:hidden}
+.contact-box::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,var(--a2),transparent 30%);opacity:.12;animation:spin 14s linear infinite}
+.contact-box>*{position:relative}
+.contact-box h2{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:14px}
+.contact-box p{color:var(--muted);max-width:560px;margin:0 auto 30px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:40px;text-align:left}
+.cgrid a{display:flex;gap:12px;align-items:center;padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--card-b);transition:.3s;font-size:.9rem;word-break:break-all}
+.cgrid a:hover{border-color:var(--a1);transform:translateY(-4px)}
+footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--card-b)}
+#top{position:fixed;right:22px;bottom:22px;z-index:90;width:46px;height:46px;border-radius:50%;border:none;background:var(--grad);color:#fff;font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 25px rgba(139,92,246,.4)}
+#top.show{opacity:1;pointer-events:auto}
+@media print{#net,.glow,nav,#top{display:none}.reveal{opacity:1;transform:none}.job-body{max-height:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<canvas id="net"></canvas>
+<div class="glow g1"></div><div class="glow g2"></div>
+
+<nav>
+  <div class="container">
+    <a href="#home" class="logo">NAVITH<span>.</span>ABBAS</a>
+    <div class="links" id="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="tbtn" id="theme" aria-label="Toggle theme">🌙</button>
+      <button class="tbtn burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="tag"><span class="dot"></span> Open to relocation · Hybrid / On-site projects</span>
+      <h1>Hi, I'm <span class="grad">Navith Abbas</span></h1>
+      <div class="typed">&gt; <b id="typed"></b><span class="cursor"></span></div>
+      <p class="lead">Senior Network Engineer with 9+ years delivering KPI uplift, SLA compliance and automation-driven optimization across tier-1 telecom operators — from RF drive tests to O-RAN RIC.</p>
+      <div class="btns">
+        <a href="#contact" class="btn primary">Let's Connect →</a>
+        <a href="#experience" class="btn ghost">View Experience</a>
+        <a href="#" class="btn ghost" onclick="window.print();return false;">⬇ Save as PDF</a>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+      <div class="ring"></div><div class="ring r2"></div>
+      <div class="avatar">NA</div>
+      <div class="chip c1">📡 5G NR · NSA/SA</div>
+      <div class="chip c2">🐍 Python Automation</div>
+      <div class="chip c3">🧠 O-RAN · Near-RT RIC</div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ABOUT -->
+<section class="s" id="about">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">// about me</div>
+      <h2 class="title">Engineering networks that <span class="grad">just perform</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="glass reveal">
+        <p>I'm a <strong>results-driven Senior Network Engineer</strong> with end-to-end experience across <strong>4G LTE and 5G NR</strong> network design, performance optimization and OSS operations.</p>
+        <p>My track record spans KPI uplift, SLA compliance and automation: I've optimized <strong>500+ cells</strong>, cut CR-validation effort by <strong>~40%</strong> with Python, and shortened new-site time-to-stable from <strong>5 days to under 48 hours</strong>.</p>
+        <p>I enjoy leading cross-functional NOC and field-team collaboration, executing complex change requests, and exploring cutting-edge <strong>O-RAN / RIC</strong> architectures that shape the future of open networks.</p>
+      </div>
+      <div class="glass facts reveal">
+        <div class="fact"><i>📍</i><div><small>Location</small><span>Chennai, Tamil Nadu, India</span></div></div>
+        <div class="fact"><i>🎓</i><div><small>Education</small><span>B.E. Electronics & Communication</span></div></div>
+        <div class="fact"><i>🗣️</i><div><small>Languages</small><span>English · Hindi · Tamil · Urdu</span></div></div>
+        <div class="fact"><i>🏢</i><div><small>Currently</small><span>Capgemini (Since Mar 2025)</span></div></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="glass stat reveal"><h3 data-count="9" data-suffix="+">0</h3><p>Years of experience</p></div>
+      <div class="glass stat reveal"><h3 data-count="500" data-suffix="+">0</h3><p>Cells optimized (4G/5G)</p></div>
+      <div class="glass stat reveal"><h3 data-count="40" data-suffix="%">0</h3><p>Manual effort reduced via Python</p></div>
+      <div class="glass stat reveal"><h3 data-count="48" data-prefix="&lt;" data-suffix="h">0</h3><p>New-site time-to-stable (from 5 days)</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="s" id="skills">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">// core competencies</div>
+      <h2 class="title">Skills & <span class="grad">Toolbox</span></h2>
+      <p class="sub">A blend of RF, performance engineering, OSS tooling and modern DevOps practice.</p>
+    </div>
+    <div class="skill-grid">
+      <div class="glass skill reveal">
+        <h4>📶 Network Technologies</h4>
+        <div class="pills"><span class="pill">4G LTE</span><span class="pill">5G NR</span><span class="pill">2G/3G</span><span class="pill">O-RAN (CU/DU/RIC)</span><span class="pill">NSA / SA</span></div>
+      </div>
+      <div class="glass skill reveal">
+        <h4>📈 Performance & Optimization</h4>
+        <div class="pills"><span class="pill">Accessibility</span><span class="pill">Retainability</span><span class="pill">Mobility</span><span class="pill">Integrity</span><span class="pill">Throughput</span><span class="pill">RF Optimization</span><span class="pill">Handover / ANR</span><span class="pill">Load Balancing</span><span class="pill">PRB Utilization</span></div>
+      </div>
+      <div class="glass skill reveal">
+        <h4>🛠️ OSS & Drive-Test Tools</h4>
+        <div class="pills"><span class="pill">Mycom</span><span class="pill">Glimpse</span><span class="pill">Vision</span><span class="pill">Nokia NetAct</span><span class="pill">Optima</span><span class="pill">TEMS Investigation</span><span class="pill">Nemo</span><span class="pill">AZQ</span><span class="pill">Xcall</span><span class="pill">Huawei & Vuze Suite</span></div>
+      </div>
+      <div class="glass skill reveal">
+        <h4>⚙️ Automation & DevOps</h4>
+        <div class="pills"><span class="pill">Python</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">Git</span><span class="pill">Jenkins CI/CD</span><span class="pill">Azure DevOps</span><span class="pill">Nanobot Framework</span></div>
+      </div>
+      <div class="glass skill reveal">
+        <h4>🖧 Infrastructure</h4>
+        <div class="pills"><span class="pill">Windows Server</span><span class="pill">Active Directory</span><span class="pill">Switches / Routers</span><span class="pill">SDN Concepts</span><span class="pill">MML Commands</span></div>
+      </div>
+    </div>
+    <div class="bars">
+      <div class="bar reveal"><div class="lbl"><span>4G LTE Optimization</span><span>95%</span></div><div class="track"><div class="fill" data-w="95"></div></div></div>
+      <div class="bar reveal"><div class="lbl"><span>5G NR Performance</span><span>90%</span></div><div class="track"><div class="fill" data-w="90"></div></div></div>
+      <div class="bar reveal"><div class="lbl"><span>KPI Analysis & Reporting</span><span>96%</span></div><div class="track"><div class="fill" data-w="96"></div></div></div>
+      <div class="bar reveal"><div class="lbl"><span>RF Drive Test & Optimization</span><span>92%</span></div><div class="track"><div class="fill" data-w="92"></div></div></div>
+      <div class="bar reveal"><div class="lbl"><span>Python Automation</span><span>85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+      <div class="bar reveal"><div class="lbl"><span>O-RAN / Near-RT RIC</span><span>78%</span></div><div class="track"><div class="fill" data-w="78"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="s" id="experience">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">// career journey</div>
+      <h2 class="title">Professional <span class="grad">Experience</span></h2>
+      <p class="sub">Click any role to expand the details.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="glass job reveal open">
+        <div class="job-head"><div><h3>Senior Network Engineer</h3><div class="co">Capgemini Pvt Ltd · Chennai</div></div><span class="date">Mar 2025 – Present</span></div>
+        <div class="job-body"><ul>
+          <li>Monitor and analyze 4G LTE & 5G NR KPIs (Accessibility, Retainability, Mobility, Integrity, Throughput) to ensure SLA compliance and network stability.</li>
+          <li>Prepare and present daily/weekly/monthly KPI reports with trend analysis and actionable recommendations for client stakeholders.</li>
+          <li>Execute Change Requests for carrier activation, 4G layer additions and parameter updates, with post-CR validation of KPI uplift.</li>
+          <li>Perform NSI and post-on-air KPI monitoring for new 4G & 5G sites, <span class="hl">reducing time-to-stable from 5 days to under 48 hours</span>.</li>
+          <li>Analyze neighbor-relation KPIs to drive handover and mobility optimization, improving inter-frequency / inter-RAT success rates.</li>
+          <li>Drive proactive alarm monitoring and first-level troubleshooting with NOC and field teams, achieving faster MTTR on critical incidents.</li>
+          <li>Maintain OSS dashboards and build ad-hoc analysis frameworks supporting network planning and capacity management.</li>
+          <li>Identify degradation trends statistically; implement parameter improvements delivering measurable CSSR and drop-rate gains.</li>
+        </ul></div>
+        <div class="more">details</div>
+      </div>
+
+      <div class="glass job reveal">
+        <div class="job-head"><div><h3>Network Engineer</h3><div class="co">Airtel Network Pvt Ltd · Chennai</div></div><span class="date">Aug 2023 – Mar 2025</span></div>
+        <div class="job-body"><ul>
+          <li>Resolved worst/poor-performing cells via deep-dive KPI root-cause analysis and drive-test data correlation.</li>
+          <li>Performed pre/post KPI analysis for 4G & 5G CRs; <span class="hl">built Python scripts automating CR validation, cutting manual effort by ~40%</span>.</li>
+          <li>Optimized accessibility (RACH, QrxLevMin, pMax, RRC timers) and retainability (RLC retransmissions, HARQ, UL RSSI, TA) parameters for better call setup and drop rates.</li>
+          <li>Enhanced mobility via ANR tuning, handover offsets, hysteresis & TTT optimization; reduced ping-pong and unnecessary handovers.</li>
+          <li>Improved throughput through PRB utilization management, SINR/CQI-based scheduling optimization and LMS tuning.</li>
+          <li>Managed traffic steering and load balancing between 4G/5G layers to reduce congestion.</li>
+          <li>Used Mycom, Glimpse and Vision for real-time monitoring and batch reporting across thousands of cells.</li>
+        </ul></div>
+        <div class="more">details</div>
+      </div>
+
+      <div class="glass job reveal">
+        <div class="job-head"><div><h3>Network Design & Optimisation Engineer</h3><div class="co">Quassar Telecom Pvt Ltd · Chennai</div></div><span class="date">Jul 2022 – Jun 2023</span></div>
+        <div class="job-body"><ul>
+          <li>Monitored daily cell KPIs with Huawei & Vuze Report Suite; identified systemic degradation patterns for proactive remediation.</li>
+          <li>Executed RF optimization: antenna tilt adjustments, power tuning, coverage/interference analysis from drive-test logs.</li>
+          <li>Used Nokia NetAct & Optima for multi-vendor monitoring; scripted MML commands for bulk parameter updates.</li>
+          <li>Conducted alarm analysis and coordinated hardware troubleshooting with field teams to improve availability.</li>
+          <li>Led coverage optimization and neighbor re-planning for new site integrations, eliminating coverage gaps and interference pockets.</li>
+        </ul></div>
+        <div class="more">details</div>
+      </div>
+
+      <div class="glass job reveal">
+        <div class="job-head"><div><h3>5G Automation Test Engineer</h3><div class="co">Trysol Global Services Pvt Ltd · Chennai</div></div><span class="date">Oct 2021 – Jun 2022</span></div>
+        <div class="job-body"><ul>
+          <li>Worked on 3GPP & O-RAN specifications (CU, DU, Near-RT RIC); deployed and validated Near-RT RIC in lab environments.</li>
+          <li>Tested xApp integration with E2NodeB — E2 interface messaging flows, subscription management and xApp onboarding.</li>
+          <li>Operated in containerized environments (Docker, Kubernetes); maintained CI/CD pipelines using Git and Jenkins.</li>
+          <li>Executed automated suites with the Nanobot framework; maintained regression and integration test scripts.</li>
+          <li>Contributed to functional and performance testing of Near-RT RIC components, documenting interface defects.</li>
+        </ul></div>
+        <div class="more">details</div>
+      </div>
+
+      <div class="glass job reveal">
+        <div class="job-head"><div><h3>L2 Technical Support Engineer</h3><div class="co">Team Computers · Chennai</div></div><span class="date">Feb 2019 – Sep 2022</span></div>
+        <div class="job-body"><ul>
+          <li>Provided L2 escalation support for Windows OS and MS Office across an enterprise client base, <span class="hl">maintaining SLA adherence above 98%</span>.</li>
+          <li>Administered Active Directory — users/groups, GPO configuration and access-control policies for large enterprises.</li>
+          <li>Managed LAN/WAN infrastructure including switches, routers and basic SDN deployments; significantly improved uptime.</li>
+        </ul></div>
+        <div class="more">details</div>
+      </div>
+
+      <div class="glass job reveal">
+        <div class="job-head"><div><h3>RF Engineer</h3><div class="co">IWS Pvt Ltd · Coimbatore</div></div><span class="date">Dec 2016 – Jan 2019</span></div>
+        <div class="job-body"><ul>
+          <li>Conducted cluster-level and SCFT drive tests for 2G/3G/4G; analyzed logs with TEMS Investigation, Nemo, AZQ and Xcall.</li>
+          <li>Performed RF optimization: antenna azimuth/tilt, frequency planning and neighbor-list optimization.</li>
+          <li>Executed CSFB testing, ping/DL/UL throughput tests and video-streaming benchmarks to validate commercial-launch readiness.</li>
+          <li>Coordinated with drive-test teams on priority customer complaints, achieving rapid turnaround for high-visibility issues.</li>
+        </ul></div>
+        <div class="more">details</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="s" id="achievements">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">// highlights</div>
+      <h2 class="title">Key <span class="grad">Achievements</span></h2>
+    </div>
+    <div class="ach-grid">
+      <div class="glass ach reveal"><div class="ic">🚀</div><h4>500+ Cells Optimized</h4><p>Measurable improvements in accessibility, retainability and throughput across 4G/5G networks.</p></div>
+      <div class="glass ach reveal"><div class="ic">🤖</div><h4>~40% Workload Reduction</h4><p>Automated CR validation and KPI reporting with Python, minimizing human error.</p></div>
+      <div class="glass ach reveal"><div class="ic">📡</div><h4>5G NR Rollout</h4><p>Contributed to seamless NSI integration projects and post-on-air stability validation on new sites.</p></div>
+      <div class="glass ach reveal"><div class="ic">🌍</div><h4>Multilingual Communicator</h4><p>English, Hindi, Tamil and Urdu — effective in cross-cultural, multi-vendor, distributed teams.</p></div>
+    </div>
+    <div class="glass edu reveal">
+      <div class="ic">🎓</div>
+      <div><h4>Bachelor of Engineering – Electronics & Communication (ECE)</h4><p>M.I.E.T Engineering College, Anna University · Tamil Nadu · Jun 2015</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="s" id="contact">
+  <div class="container">
+    <div class="contact-box reveal">
+      <div class="eyebrow">// get in touch</div>
+      <h2>Let's build <span class="grad">better networks</span> together</h2>
+      <p>Available for relocation and open to hybrid / on-site engagements for critical network projects. Reach out — I'd love to hear about your next challenge.</p>
+      <a class="btn primary" href="mailto:gdnavith7@gmail.com">✉ Send me an email</a>
+      <div class="cgrid">
+        <a href="mailto:gdnavith7@gmail.com">📧 gdnavith7@gmail.com</a>
+        <a href="tel:+919787866009">📞 +91 97878 66009</a>
+        <a href="https://linkedin.com/in/navithabbas-aab5bb153" target="_blank" rel="noopener">🔗 LinkedIn Profile</a>
+        <a href="#home">📍 Chennai, Tamil Nadu</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="yr"></span> Navith Abbas · Senior Network Engineer · Crafted with ❤ and a lot of RF signal</footer>
+<button id="top" aria-label="Back to top">↑</button>
+
+<script>
+// year
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// theme
+const root = document.documentElement, tbtn = document.getElementById('theme');
+try{ const s = localStorage.getItem('theme'); if(s){ root.dataset.theme = s; } }catch(e){}
+const syncIcon = () => tbtn.textContent = root.dataset.theme === 'light' ? '☀️' : '🌙';
+syncIcon();
+tbtn.onclick = () => {
+  root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+  try{ localStorage.setItem('theme', root.dataset.theme); }catch(e){}
+  syncIcon();
+};
+
+// mobile menu
+const links = document.getElementById('links');
+document.getElementById('burger').onclick = () => links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a => a.onclick = () => links.classList.remove('open'));
+
+// typing effect
+const roles = ['4G LTE & 5G NR Specialist','RF Optimization Engineer','KPI & Performance Analyst','Python Automation Enthusiast','O-RAN / Near-RT RIC Explorer'];
+const el = document.getElementById('typed'); let ri = 0, ci = 0, del = false;
+(function type(){
+  const w = roles[ri];
+  el.textContent = w.slice(0, ci);
+  if(!del && ci++ === w.length){ del = true; return setTimeout(type, 1600); }
+  if(del && --ci < 0){ del = false; ci = 0; ri = (ri+1) % roles.length; }
+  setTimeout(type, del ? 35 : 75);
+})();
+
+// reveal + counters + bars
+const counters = new WeakSet();
+function countUp(e){
+  const t = +e.dataset.count, p = e.dataset.prefix || '', s = e.dataset.suffix || '', d = 1500, st = performance.now();
+  (function f(n){
+    const k = Math.min((n - st) / d, 1), v = Math.floor(t * (1 - Math.pow(1 - k, 3)));
+    e.textContent = p + v + s;
+    if(k < 1) requestAnimationFrame(f);
+  })(st);
+}
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if(!en.isIntersecting) return;
+  en.target.classList.add('in');
+  en.target.querySelectorAll('[data-count]').forEach(c => { if(!counters.has(c)){ counters.add(c); countUp(c); } });
+  en.target.querySelectorAll('.fill').forEach(f => f.style.width = f.dataset.w + '%');
+  io.unobserve(en.target);
+}), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+
+// expandable jobs
+document.querySelectorAll('.job').forEach(j => j.addEventListener('click', () => j.classList.toggle('open')));
+
+// scroll: progress, nav highlight, to-top
+const prog = document.getElementById('progress'), topBtn = document.getElementById('top');
+const secs = [...document.querySelectorAll('header[id], section[id]')], navA = [...links.querySelectorAll('a')];
+addEventListener('scroll', () => {
+  const h = document.documentElement, sc = h.scrollTop;
+  prog.style.width = (sc / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  topBtn.classList.toggle('show', sc > 600);
+  let cur = '';
+  secs.forEach(s => { if(sc >= s.offsetTop - 160) cur = s.id; });
+  navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+}, { passive: true });
+topBtn.onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
+
+// network-node canvas background
+const cv = document.getElementById('net'), cx = cv.getContext('2d');
+let W, H, pts = [], mouse = { x: -999, y: -999 };
+function resize(){
+  W = cv.width = innerWidth; H = cv.height = innerHeight;
+  const n = Math.min(90, Math.floor(W * H / 16000));
+  pts = Array.from({ length: n }, () => ({ x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4 }));
+}
+addEventListener('resize', resize);
+addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+resize();
+(function draw(){
+  cx.clearRect(0, 0, W, H);
+  const light = root.dataset.theme === 'light', rgb = light ? '80,90,200' : '34,211,238';
+  for(const p of pts){
+    p.x += p.vx; p.y += p.vy;
+    if(p.x < 0 || p.x > W) p.vx *= -1;
+    if(p.y < 0 || p.y > H) p.vy *= -1;
+    cx.beginPath(); cx.arc(p.x, p.y, 1.8, 0, 7); cx.fillStyle = `rgba(${rgb},.8)`; cx.fill();
+  }
+  for(let i = 0; i < pts.length; i++){
+    for(let j = i + 1; j < pts.length; j++){
+      const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.hypot(dx, dy);
+      if(d < 140){ cx.strokeStyle = `rgba(${rgb},${.22 * (1 - d/140)})`; cx.beginPath(); cx.moveTo(pts[i].x, pts[i].y); cx.lineTo(pts[j].x, pts[j].y); cx.stroke(); }
+    }
+    const mx = pts[i].x - mouse.x, my = pts[i].y - mouse.y, md = Math.hypot(mx, my);
+    if(md < 180){ cx.strokeStyle = `rgba(244,114,182,${.5 * (1 - md/180)})`; cx.beginPath(); cx.moveTo(pts[i].x, pts[i].y); cx.lineTo(mouse.x, mouse.y); cx.stroke(); }
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
